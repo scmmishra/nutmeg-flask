@@ -1,16 +1,6 @@
-from datetime import datetime
-import string
-import random
-from nutmeg.utils import get_current_session
+from nutmeg.utils import get_current_session, get_timestamp, id_generator
 
 from flask import make_response, abort
-
-
-def get_timestamp():
-	return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
-
-def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-	return ''.join(random.choice(chars) for _ in range(size))
 
 # Data to serve with our API
 NOTES = {
