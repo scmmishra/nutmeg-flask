@@ -1,0 +1,122 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /notes:
+    get:
+      operationId: "nutmeg.models.notes.read"
+      tags:
+        - Notes
+      summary: "The notes data structure supported by the server application"
+      description: "Read the list of notes"
+      responses:
+        200:
+          description: "Successful read notes list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                title:
+                  type: "string"
+                owner:
+                  type: "string"
+                body:
+                  type: "string"
+                timestamp:
+                  type: "string"
+    post:
+      operationId: nutmeg.models.notes.create
+      tags:
+        - Notes
+      summary: Create a note and add it to the notes list
+      description: Create a new note in the notes list
+      parameters:
+        - name: note
+          in: body
+          description: Note to create
+          required: True
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Title of the note
+              body:
+                type: string
+                description: Body
+      responses:
+        201:
+          description: Successfully created note in list
+
+  /notes/{id}:
+    get:
+      operationId: nutmeg.models.notes.get_note
+      tags:
+        - Notes
+      summary: Read one note from the notes list
+      description: Read one note from the notes list
+      parameters:
+        - name: id
+          in: path
+          description: id of the note to fetch
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read note from notes list operation
+          schema:
+            properties:
+              title:
+                type: string
+              body:
+                type: string
+              timestamp:
+                type: string
+    put:
+      operationId: nutmeg.models.notes.update
+      tags:
+        - Notes
+      summary: Update a note in the notes list
+      description: Update a note in the notes list
+      parameters:
+        - name: id
+          in: path
+          description: id of the note to update in the list
+          type: string
+          required: True
+        - name: note
+          in: body
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              body:
+                type: string
+      responses:
+        200:
+          description: Successfully updated note in notes list
+    delete:
+      operationId: nutmeg.models.notes.delete
+      tags:
+        - Notes
+      summary: Delete a note from the notes list
+      description: Delete a note
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a note from notes list
