@@ -2,8 +2,8 @@
   Nutemg
 </h1>
 
-<h4 align="center">A dead simple note taking app built for the web.</h4>
-<h3 align="center">Work in Progress.</h3>
+<h3 align="center">A dead simple note taking app built for the web.</h3>
+<h4 align="center">Work in Progress.</h4>
 
 ## Features
 - Markdown Shortcuts
