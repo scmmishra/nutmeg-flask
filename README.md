@@ -16,5 +16,4 @@
 - MariaDB
 
 ## License
-
-GNU GPL v3
+GNU General Public License v3.0
