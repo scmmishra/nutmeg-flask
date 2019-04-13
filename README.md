@@ -1,5 +1,5 @@
 <div align="center">
-    <img src=".github/nutmeg.png" height="150">
+    <img src=".github/nutmeg-logo.png" height="150">
 </div>
 
 <h3 align="center">A dead simple note taking app built for the web.</h3>
